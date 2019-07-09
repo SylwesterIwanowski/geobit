@@ -23,5 +23,4 @@ public class ApplicationUserController {
     public @ResponseBody List<ApplicationUser> getAllUsers() {
         return newArrayList(repository.findAll());
     }
-
 }
