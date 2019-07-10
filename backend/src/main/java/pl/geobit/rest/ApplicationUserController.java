@@ -2,9 +2,7 @@ package pl.geobit.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import pl.geobit.model.ApplicationUser;
 import pl.geobit.repository.ApplicationUserRepository;
 
@@ -22,5 +20,13 @@ public class ApplicationUserController {
     @GetMapping(path = "get")
     public @ResponseBody List<ApplicationUser> getAllUsers() {
         return newArrayList(repository.findAll());
+    }
+
+    @PostMapping(path = "add", consumes = "application/json")
+    public @ResponseBody ApplicationUser addUser(@RequestBody ApplicationUser user) {
+        ApplicationUser newUser = new ApplicationUser();
+        newUser.setEmail(user.getEmail());
+        newUser.setPassword(user.getPassword());
+        return repository.save(newUser);
     }
 }
