@@ -27,6 +27,9 @@ public class ApplicationUserController {
         ApplicationUser newUser = new ApplicationUser();
         newUser.setEmail(user.getEmail());
         newUser.setPassword(user.getPassword());
+        newUser.setFirstName(user.getFirstName());
+        newUser.setLastName(user.getLastName());
+        newUser.setPhoneNumber(user.getPhoneNumber());
         return repository.save(newUser);
     }
 }

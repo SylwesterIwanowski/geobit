@@ -3,6 +3,9 @@
     <h1>Login Page</h1>
     <p> Email <input v-model="login"></p>
     <p> Haslo <input v-model="password"></p>
+    <p> Imie <input v-model="firstName"></p>
+    <p> Nazwisko <input v-model="lastName"></p>
+    <p> Tel. <input v-model="phoneNumber"></p>
     <input @click.stop.prevent="submitLoginForm" type="submit" value="Rejestracja">
   </div>
 </template>
@@ -19,7 +22,10 @@
     data() {
       return {
         login: '',
-        password: ''
+        password: '',
+        phoneNumber: '',
+        lastName: '',
+        firstName: ''
       }
     },
     methods: {
@@ -30,9 +36,13 @@
         let newUser = {};
         newUser.email = this.login;
         newUser.password = this.password;
+        newUser.phoneNumber = this.phoneNumber;
+        newUser.lastName = this.lastName;
+        newUser.firstName = this.firstName;
 
 
-        axios.post('http://localhost:8080/rest/user/add', newUser)
+
+        axios.post('http://localhost:8080/rest/user/add', ]])
           .then(function (response) {
             console.log(response);
             //router.push({ name: 'Login'});
