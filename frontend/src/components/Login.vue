@@ -1,16 +1,16 @@
 <template>
   <div>
-    <h1>Login</h1>
+    <h1>{{msg}}</h1>
     <button>Login</button>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Login',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Witam na stronie GEOBIT'
     }
   }
 }

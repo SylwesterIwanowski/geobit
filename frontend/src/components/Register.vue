@@ -1,19 +1,18 @@
 <template>
   <div>
     <h1>Login Page</h1>
-    <div>
-      Email <input v-model="login"/>
-    </div>
-    <div>
-      Haslo <input v-model="password"/>
-    </div>
-    <input @click="submitLoginForm" type="submit" value="Rejestracja"/>
+    <p> Email <input v-model="login"></p>
+    <p> Haslo <input v-model="password"></p>
+    <input @click.stop.prevent="submitLoginForm" type="submit" value="Rejestracja">
   </div>
 </template>
 
 <script>
   import axios from "axios";
+  //import router from '../router'
+  //import {VueConstructor as Vue} from "vue/types/vue";
 
+ // Vue.use(router);
 
   export default {
     name: 'Register',
@@ -36,8 +35,9 @@
         axios.post('http://localhost:8080/rest/user/add', newUser)
           .then(function (response) {
             console.log(response);
+            //router.push({ name: 'Login'});
+            //window.history.back();
           });
-
       }
     }
   }
@@ -46,7 +46,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  h1, h2 {
+  h1, h2, h3 {
     font-weight: normal;
   }
 
