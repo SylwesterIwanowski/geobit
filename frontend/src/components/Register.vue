@@ -11,46 +11,40 @@
 </template>
 
 <script>
-  import axios from "axios";
-  //import router from '../router'
-  //import {VueConstructor as Vue} from "vue/types/vue";
+import axios from 'axios'
+import Router from '../router'
 
- // Vue.use(router);
+export default {
+  name: 'Register',
+  data () {
+    return {
+      login: '',
+      password: '',
+      phoneNumber: '',
+      lastName: '',
+      firstName: ''
+    }
+  },
+  methods: {
+    submitLoginForm: function () {
+      console.log(this.login);
+      console.log(this.password);
 
-  export default {
-    name: 'Register',
-    data() {
-      return {
-        login: '',
-        password: '',
-        phoneNumber: '',
-        lastName: '',
-        firstName: ''
-      }
-    },
-    methods: {
-      submitLoginForm: function () {
-        console.log(this.login);
-        console.log(this.password);
+      let newUser = {};
+      newUser.email = this.login;
+      newUser.password = this.password;
+      newUser.phoneNumber = this.phoneNumber;
+      newUser.lastName = this.lastName;
+      newUser.firstName = this.firstName;
 
-        let newUser = {};
-        newUser.email = this.login;
-        newUser.password = this.password;
-        newUser.phoneNumber = this.phoneNumber;
-        newUser.lastName = this.lastName;
-        newUser.firstName = this.firstName;
-
-
-
-        axios.post('http://localhost:8080/rest/user/add', ]])
-          .then(function (response) {
-            console.log(response);
-            //router.push({ name: 'Login'});
-            //window.history.back();
-          });
-      }
+      axios.post('http://localhost:8080/rest/user/add', newUser)
+        .then(function (response) {
+          console.log(response);
+          Router.push({name: 'Hello'})
+        })
     }
   }
+}
 
 </script>
 

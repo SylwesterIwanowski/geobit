@@ -4,6 +4,8 @@ import Register from "../components/Register";
 import Login from "../components/Login";
 import Tasks from "../components/Tasks";
 import Employees from "../components/Employees";
+import Home from "../components/Home";
+import Login2 from "../components/Login2";
 
 Vue.use(Router);
 
@@ -28,6 +30,16 @@ export default new Router({
       path: '/employees',
       name: 'Employees',
       component: Employees
+    },
+    {
+      path: '/home',
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/login2',
+      name: 'Login2',
+      component: Login2
     }
   ]
 })

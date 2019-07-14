@@ -4,4 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 import pl.geobit.model.ApplicationUser;
 
 public interface ApplicationUserRepository extends CrudRepository<ApplicationUser, Long> {
+
+	ApplicationUser findByEmail(String email);
 }
