@@ -1,13 +1,76 @@
 <template>
-  <div>
-    <h1>Login Page</h1>
-    <p> Email <input v-model="login"></p>
-    <p> Haslo <input v-model="password"></p>
-    <p> Imie <input v-model="firstName"></p>
-    <p> Nazwisko <input v-model="lastName"></p>
-    <p> Tel. <input v-model="phoneNumber"></p>
-    <input @click.stop.prevent="submitLoginForm" type="submit" value="Rejestracja">
-  </div>
+  <v-app light>
+    <v-content>
+      <v-container>
+        <v-form>
+          <v-container>
+            <v-layout row wrap>
+              <h1>REJESTRACJA</h1>
+              <v-flex
+                xs12
+              >
+                <v-text-field
+                  v-model="login"
+                  label="Email"
+                  required
+                ></v-text-field>
+              </v-flex>
+
+              <v-flex
+                xs12
+
+              >
+                <v-text-field
+                  v-model="password"
+                  label="Hasło"
+                  required
+                ></v-text-field>
+              </v-flex>
+
+              <v-flex
+                xs12
+              >
+                <v-text-field
+                  v-model="firstName"
+                  label="Imie"
+                  required
+                ></v-text-field>
+              </v-flex>
+
+              <v-flex
+                xs12
+              >
+                <v-text-field
+                  v-model="lastName"
+                  label="Nazwisko"
+                  required
+                ></v-text-field>
+              </v-flex>
+
+              <v-flex
+                xs12
+              >
+                <v-text-field
+                  v-model="phoneNumber"
+                  label="Telefon"
+                  required
+                ></v-text-field>
+              </v-flex>
+
+              <v-flex
+                xs12
+              >
+                <v-btn color="primary" @click="submitLoginForm" >Zarejestruj</v-btn>
+              </v-flex>
+            </v-layout>
+          </v-container>
+        </v-form>
+      </v-container>
+    </v-content>
+  </v-app>
+
+
+
 </template>
 
 <script>
@@ -40,7 +103,7 @@ export default {
       axios.post('http://localhost:8080/rest/user/add', newUser)
         .then(function (response) {
           console.log(response);
-          Router.push({name: 'Hello'})
+          Router.push({name: 'TasksAndEmployees'})
         })
     }
   }
@@ -52,6 +115,7 @@ export default {
 <style scoped>
   h1, h2, h3 {
     font-weight: normal;
+    text-align: center;
   }
 
   ul {
@@ -67,4 +131,5 @@ export default {
   a {
     color: #42b983;
   }
+
 </style>

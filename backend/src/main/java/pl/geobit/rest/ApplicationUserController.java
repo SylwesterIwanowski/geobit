@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import pl.geobit.authorization.AuthenticationService;
 import pl.geobit.authorization.UserToken;
 import pl.geobit.model.ApplicationUser;
+import pl.geobit.model.Role;
 import pl.geobit.repository.ApplicationUserRepository;
 
 @Controller
@@ -47,7 +48,17 @@ public class ApplicationUserController {
 		newUser.setFirstName(user.getFirstName());
 		newUser.setLastName(user.getLastName());
 		newUser.setPhoneNumber(user.getPhoneNumber());
+		newUser.setRole(Role.EMPLOYEE);
 		return repository.save(newUser);
+	}
+
+	@PostMapping(path = "deleteEmployee", consumes = "application/json")
+	public @ResponseBody
+	void deleteUser(@RequestBody ApplicationUser user) {
+		ApplicationUser foundUser = repository.findByEmail(user.getEmail());
+		if (foundUser != null) {
+			repository.delete(foundUser);
+		}
 	}
 
 	@PostMapping(path = "login", consumes = "application/json")

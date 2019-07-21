@@ -3,11 +3,7 @@ package pl.geobit.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -23,7 +19,8 @@ public class ApplicationUser {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     private String firstName;
 

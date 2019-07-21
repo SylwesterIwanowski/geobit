@@ -2,10 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Register from "../components/Register";
 import Login from "../components/Login";
-import Tasks from "../components/Tasks";
+import TasksAndEmployees from "../components/TasksAndEmployees";
 import Employees from "../components/Employees";
-import Home from "../components/Home";
-import Login2 from "../components/Login2";
+import Tasks from "../components/Tasks";
 
 Vue.use(Router);
 
@@ -22,6 +21,11 @@ export default new Router({
       component: Register
     },
     {
+      path: '/tasksAndEmployees',
+      name: 'TasksAndEmployees',
+      component: TasksAndEmployees
+    },
+    {
       path: '/tasks',
       name: 'Tasks',
       component: Tasks
@@ -30,16 +34,6 @@ export default new Router({
       path: '/employees',
       name: 'Employees',
       component: Employees
-    },
-    {
-      path: '/home',
-      name: 'Home',
-      component: Home
-    },
-    {
-      path: '/login2',
-      name: 'Login2',
-      component: Login2
     }
   ]
 })

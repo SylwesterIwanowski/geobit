@@ -1,18 +1,15 @@
 package pl.geobit.authorization;
 
-import static pl.geobit.util.GeobitStringUtils.generateToken;
-
-import java.util.Objects;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.context.annotation.SessionScope;
-
 import pl.geobit.model.ApplicationUser;
 import pl.geobit.repository.ApplicationUserRepository;
 
+import java.util.Objects;
+
+import static pl.geobit.util.GeobitStringUtils.generateToken;
+
 @Service
-@SessionScope
 public class AuthenticationService {
 
 	private ApplicationUser user;
@@ -33,7 +30,7 @@ public class AuthenticationService {
 		if (foundUser.getPassword().equals(password)) {
 			this.user = foundUser;
 			this.token = generateToken();
-			new UserToken(this.token);
+			return new UserToken(this.token);
 		}
 		return null;
 	}

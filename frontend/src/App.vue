@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <img src="./assets/logoGeobit.png">
+
     <router-view/>
   </div>
 </template>
