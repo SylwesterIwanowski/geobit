@@ -4,11 +4,9 @@ package pl.geobit.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter
@@ -21,8 +19,19 @@ public class Task {
 
     private String title;
 
+    private String kerg;
+
     private String description;
 
+    private String isDelete;
+
+    private Date startDate;
+
+    private Date endDate;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<ApplicationUser> users;
+
     @ManyToOne
-    private Mission mission;
-}
+    private Customer customer;
+ }
