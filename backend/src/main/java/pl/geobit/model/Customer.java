@@ -32,5 +32,5 @@ public class Customer {
     private String description;
 
     @OneToMany(fetch = FetchType.EAGER)
-    private List<Mission> orderedMissions;
+    private List<Task> orderedTasks;
 }
