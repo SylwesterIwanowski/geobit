@@ -35,5 +35,8 @@ public class ApplicationUser {
     @ManyToMany
     private List<Task> tasks;
 
+    @ManyToMany
+    private List<Machine> machines;
+
     private Boolean isDeleted;
 }
