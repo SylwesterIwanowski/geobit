@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -23,15 +24,22 @@ public class Task {
 
     private String description;
 
-    private String isDelete;
+    private Boolean isDeleted;
 
     private Date startDate;
 
     private Date endDate;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private List<ApplicationUser> users;
+    private List<ApplicationUser> employees;
 
     @ManyToOne
     private Customer customer;
- }
+
+    public void addEmployee(ApplicationUser employee) {
+        if (employees == null) {
+            employees = new ArrayList<>();
+        }
+        employees.add(employee);
+    }
+}
