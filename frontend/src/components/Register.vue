@@ -55,7 +55,7 @@ export default {
       axios.post('http://localhost:8080/rest/user/add', newUser)
         .then(function (response) {
           console.log(response);
-          Router.push({name: 'TasksAndEmployees'})
+          Router.push({name: 'Tasks'})
         })
     }
   }

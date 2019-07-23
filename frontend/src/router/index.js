@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import Router from 'vue-router'
 import Register from "../components/Register";
 import Login from "../components/Login";
@@ -6,7 +5,6 @@ import TasksAndEmployees from "../components/TasksAndEmployees";
 import Employees from "../components/Employees";
 import Tasks from "../components/Tasks";
 
-Vue.use(Router);
 
 export default new Router({
   routes: [

@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.*;
 import pl.geobit.model.Task;
 import pl.geobit.repository.TaskRepository;
 
+import javax.validation.ValidationException;
+import java.util.Optional;
+
 @Controller
 @RequestMapping(path ="rest/task")
 public class TaskController {
@@ -17,24 +20,36 @@ public class TaskController {
     @GetMapping(path = "get")
     public @ResponseBody
     Iterable<Task> getAllTasks() {
-        return repository.findAll();
+        return repository.findAllByOrderByIdAsc();
     }
 
     @PostMapping(path = "add", consumes = "application/json")
     public @ResponseBody
     Task addTask(@RequestBody Task task) {
-        Task newTask = new Task();
-        newTask.setTitle(task.getTitle());
-        newTask.setStartDate(task.getStartDate());
-        newTask.setEndDate(task.getEndDate());
-        newTask.setKerg(task.getKerg());
-        newTask.setDescription(task.getDescription());
-        newTask.setCustomer(task.getCustomer());
-        newTask.setEmployees(task.getEmployees());
+        if (task.getTitle() == null) {
+            throw new ValidationException("Title cannot be null");
+        }
+        Optional<Task> foundOptionalTask;
+        if (task.getId() == null) {
+            foundOptionalTask = Optional.empty();
+        } else {
+            foundOptionalTask = repository.findById(task.getId());
+        }
 
-        return repository.save(newTask);
+        if (foundOptionalTask.isEmpty()) {
+            return repository.save(task);
+        } else {
+            Task foundTask = foundOptionalTask.get();
+            foundTask.setTitle(task.getTitle());
+            foundTask.setStartDate(task.getStartDate());
+            foundTask.setEndDate(task.getEndDate());
+            foundTask.setKerg(task.getKerg());
+            foundTask.setDescription(task.getDescription());
+            foundTask.setCustomer(task.getCustomer());
+            foundTask.setEmployees(task.getEmployees());
+            return repository.save(foundTask);
+        }
     }
-
 }
 
 

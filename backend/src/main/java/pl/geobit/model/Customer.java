@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -33,4 +34,11 @@ public class Customer {
 
     @OneToMany(fetch = FetchType.EAGER)
     private List<Task> orderedTasks;
+
+    public void addTask(Task task) {
+       if (orderedTasks == null) {
+            orderedTasks = new ArrayList<>();
+        }
+        orderedTasks.add(task);
+    }
 }
