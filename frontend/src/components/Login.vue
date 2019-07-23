@@ -6,30 +6,9 @@
           <v-container>
             <v-layout row wrap>
                   <h1>LOGOWANIE</h1>
-              <v-flex
-                xs12
-              >
-                <v-text-field
-                  v-model="login"
-                  label="Email"
-                  required
-                ></v-text-field>
-              </v-flex>
-
-              <v-flex
-                xs12
-
-              >
-                <v-text-field
-                  v-model="password"
-                  label="Hasło"
-                  required
-                ></v-text-field>
-              </v-flex>
-
-              <v-flex
-                xs12
-              >
+              <v-flex xs12>
+                <v-text-field v-model="login" label="Email" required></v-text-field>
+                <v-text-field v-model="password" label="Hasło" required></v-text-field>
                 <v-btn color="primary" @click="submitLoginForm" >Zaloguj</v-btn>
               </v-flex>
             </v-layout>
@@ -65,7 +44,7 @@ export default {
           .then(function (response) {
             console.log(response);
             localStorage.setItem('token', response.data.token);
-            Router.push({name: 'TasksAndEmpoyees'});
+            Router.push({name: 'Tasks'});
           })
       }
   }
