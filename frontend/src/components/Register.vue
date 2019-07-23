@@ -6,61 +6,13 @@
           <v-container>
             <v-layout row wrap>
               <h1>REJESTRACJA</h1>
-              <v-flex
-                xs12
-              >
-                <v-text-field
-                  v-model="login"
-                  label="Email"
-                  required
-                ></v-text-field>
-              </v-flex>
-
-              <v-flex
-                xs12
-
-              >
-                <v-text-field
-                  v-model="password"
-                  label="Hasło"
-                  required
-                ></v-text-field>
-              </v-flex>
-
-              <v-flex
-                xs12
-              >
-                <v-text-field
-                  v-model="firstName"
-                  label="Imie"
-                  required
-                ></v-text-field>
-              </v-flex>
-
-              <v-flex
-                xs12
-              >
-                <v-text-field
-                  v-model="lastName"
-                  label="Nazwisko"
-                  required
-                ></v-text-field>
-              </v-flex>
-
-              <v-flex
-                xs12
-              >
-                <v-text-field
-                  v-model="phoneNumber"
-                  label="Telefon"
-                  required
-                ></v-text-field>
-              </v-flex>
-
-              <v-flex
-                xs12
-              >
-                <v-btn color="primary" @click="submitLoginForm" >Zarejestruj</v-btn>
+              <v-flex xs12>
+               <v-text-field v-model="login" label="Email" required></v-text-field>
+              <v-text-field v-model="password" label="Hasło" required></v-text-field>
+              <v-text-field v-model="firstName" label="Imie" required></v-text-field>
+              <v-text-field v-model="lastName" label="Nazwisko" required></v-text-field>
+              <v-text-field v-model="phoneNumber" label="Telefon" required></v-text-field>
+              <v-btn color="primary" @click="submitLoginForm" >Zarejestruj</v-btn>
               </v-flex>
             </v-layout>
           </v-container>
