@@ -32,10 +32,7 @@ public class ApplicationUserController {
 
 	@GetMapping(path = "get")
 	public @ResponseBody
-	List<ApplicationUser> getAllUsers(@RequestHeader(name = "token") String token) {
-		if (!authenticationService.isUserLoggedIn(token)) {
-			throw new AuthenticationCredentialsNotFoundException("Invalid credentials");
-		}
+	List<ApplicationUser> getAllUsers() {
 		return newArrayList(repository.findAll());
 	}
 

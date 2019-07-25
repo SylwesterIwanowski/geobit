@@ -6,7 +6,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -26,9 +25,9 @@ public class Task {
 
     private Boolean isDeleted;
 
-    private Date startDate;
+    private String startDate;
 
-    private Date endDate;
+    private String endDate;
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<ApplicationUser> employees;
