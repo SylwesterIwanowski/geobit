@@ -24,7 +24,7 @@ public class Machine {
     private String systemVersion;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private List<ApplicationUser> usersMachine;
+    private List<ApplicationUser> employeesMachine;
 
 
 

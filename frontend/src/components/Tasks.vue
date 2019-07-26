@@ -14,8 +14,6 @@
                 <v-btn color="primary">Zleceniodawcy</v-btn>
 
 
-
-                <!--v-btn color="primary" @click="submitLoginForm" >Zaloguj</v-btn-->
               </v-flex>
             </v-layout>
           </v-container>
@@ -23,7 +21,7 @@
       </v-container>
     </v-content>
 
-    <!--template-->
+
     <v-container fluid>
       <v-layout row>
         <v-flex pa-2 xs7>

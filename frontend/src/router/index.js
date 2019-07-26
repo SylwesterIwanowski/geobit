@@ -1,9 +1,9 @@
 import Router from 'vue-router'
 import Register from "../components/Register";
 import Login from "../components/Login";
-import TasksAndEmployees from "../components/TasksAndEmployees";
 import Employees from "../components/Employees";
 import Tasks from "../components/Tasks";
+import Machines from "../components/Machines";
 
 
 export default new Router({
@@ -19,11 +19,6 @@ export default new Router({
       component: Register
     },
     {
-      path: '/tasksAndEmployees',
-      name: 'TasksAndEmployees',
-      component: TasksAndEmployees
-    },
-    {
       path: '/tasks',
       name: 'Tasks',
       component: Tasks
@@ -32,6 +27,11 @@ export default new Router({
       path: '/employees',
       name: 'Employees',
       component: Employees
-    }
+    },
+    {
+      path: '/machines',
+      name: 'Machines',
+      component: Machines
+    },
   ]
 })
