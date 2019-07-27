@@ -91,17 +91,18 @@
         endDate: '',
         kerg: '',
         description: '',
-        customers: [],
         selectedEmployees: [],
         allEmployees: [],
         employees: [],
         employee: [],
-        customer: [
-          'Mostostal', 'Stal Export', 'International', 'Exporting', 'Mafixing'
-        ],
+
         tasks: [],
-        selectedCustomers: '',
         selectedTask: {},
+
+        customer: [],
+        selectedCustomers: [],
+        allCustomers: [],
+        customers: [],
 
 
       }
@@ -180,6 +181,8 @@
         }
         return result;
       }
+
+
     },
     created() {
       this.getAllTasks();
