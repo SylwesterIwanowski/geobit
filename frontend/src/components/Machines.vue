@@ -13,8 +13,6 @@
                 <v-btn color="primary">Zadania</v-btn>
                 <v-btn color="primary">Zleceniodawcy</v-btn>
 
-
-
               </v-flex>
             </v-layout>
           </v-container>
@@ -42,11 +40,10 @@
             <td class="clickable" @click="getEditMachine(machine)">{{ machine.nameNetwork }}</td>
             <td class="clickable" @click="getEditMachine(machine)">{{ machine.description }}</td>
             <td class="clickable" @click="getEditMachine(machine)">{{ machine.systemVersion }}</td>
-            <td class="clickable" @click="getEditMachine(machine)"><div v-for="employee in machine.employeesMachine">
-              {{employee.firstName}} {{employee.lastName}}</div></td>
+            <td class="clickable" @click="getEditMachine(machine)">
+              <div v-for="employee in machine.employeesMachine">{{employee.firstName}} {{employee.lastName}}</div></td>
            </tr>
         </table>
-
       </v-flex>
 
       <v-flex pa-2 xs5>
@@ -99,6 +96,7 @@
         employee: [],
         machines: [],
         selectedMachine: {},
+        employeesMachine: []
 
       }
     },
@@ -108,18 +106,14 @@
         axios.get('http://localhost:8080/rest/machine/get')
           .then(function (response) {
             console.log(response);
-
             vm.machines = response.data;
             console.log('machines');
             console.log(response.data);
-
-
           })
-
       },
       submitAddMachine: function () {
         let vm = this;
-        this.selectedMachine.employees = this.convertNamesToOjects();
+        this.selectedMachine.employeesMachine = this.convertNamesToOjects();
         axios.post('http://localhost:8080/rest/machine/add', this.selectedMachine)
           .then(function (response) {
             console.log(response);
@@ -189,10 +183,6 @@
       }
 
     },
-
-
-
-
 
     created() {
       this.getAllMachines();

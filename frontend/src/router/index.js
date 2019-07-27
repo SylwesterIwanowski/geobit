@@ -4,6 +4,7 @@ import Login from "../components/Login";
 import Employees from "../components/Employees";
 import Tasks from "../components/Tasks";
 import Machines from "../components/Machines";
+import Customer from "../components/Customer";
 
 
 export default new Router({
@@ -33,5 +34,10 @@ export default new Router({
       name: 'Machines',
       component: Machines
     },
+    {
+      path: '/customer',
+      name: 'Customer',
+      component: Customer
+    }
   ]
 })
